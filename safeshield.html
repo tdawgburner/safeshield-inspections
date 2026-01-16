@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeShield Inspections - Professional Asbestos Testing in Manassas, VA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo-nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .shield-nav {
+            width: 40px;
+            height: 46px;
+            position: relative;
+        }
+
+        .layer-nav {
+            position: absolute;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+
+        .layer1-nav {
+            width: 40px;
+            height: 46px;
+            background: rgba(52, 152, 219, 0.3);
+            top: 0;
+            left: 0;
+        }
+
+        .layer2-nav {
+            width: 34px;
+            height: 40px;
+            background: rgba(52, 152, 219, 0.6);
+            top: 3px;
+            left: 3px;
+        }
+
+        .layer3-nav {
+            width: 28px;
+            height: 34px;
+            background: #3498db;
+            top: 6px;
+            left: 6px;
+        }
+
+        .logo-text {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.95), rgba(52, 73, 94, 0.95)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23ecf0f1" width="1200" height="600"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 8rem 2rem 6rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: #ecf0f1;
+        }
+
+        .cta-button {
+            background: #3498db;
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .cta-button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.6);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: #3498db;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        /* Interactive House Section */
+        .interactive-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+        }
+
+        .house-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .room-display {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(180deg, #e8f4f8 0%, #d4e8f0 50%, #c9a87c 50%, #a68a5c 100%);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        /* Room elements */
+        .wall {
+            position: absolute;
+            background: #e8f4f8;
+            border: 2px solid #2c3e50;
+        }
+
+        .wall-left {
+            left: 0;
+            top: 0;
+            width: 30%;
+            height: 50%;
+            transform: skewY(-10deg);
+            transform-origin: bottom left;
+            background: #d4e8f0;
+        }
+
+        .wall-right {
+            right: 0;
+            top: 0;
+            width: 30%;
+            height: 50%;
+            transform: skewY(10deg);
+            transform-origin: bottom right;
+            background: #dbe8ef;
+        }
+
+        .floor {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: repeating-linear-gradient(
+                90deg,
+                #c9a87c,
+                #c9a87c 50px,
+                #b8976b 50px,
+                #b8976b 100px
+            );
+        }
+
+        .ceiling {
+            position: absolute;
+            top: 0;
+            left: 10%;
+            width: 80%;
+            height: 3%;
+            background: white;
+            border: 2px solid #2c3e50;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .pipe {
+            position: absolute;
+            width: 20px;
+            height: 80px;
+            background: linear-gradient(90deg, #7f8c8d, #95a5a6);
+            border: 2px solid #2c3e50;
+            border-radius: 10px;
+            top: 15%;
+            right: 25%;
+        }
+
+        .hotspot {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: #e74c3c;
+            border: 3px solid white;
+            border-radius: 50%;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .hotspot:hover {
+            transform: scale(1.2);
+            animation: none;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 4px 15px rgba(231, 76, 60, 0.5);
+            }
+            50% {
+                box-shadow: 0 4px 25px rgba(231, 76, 60, 0.8);
+            }
+        }
+
+        .info-panel {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+            min-height: 150px;
+        }
+
+        .info-panel h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .info-panel.active {
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: #3498db;
+            color: white;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .room-display {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo-nav">
+                <div class="shield-nav">
+                    <div class="layer-nav layer1-nav"></div>
+                    <div class="layer-nav layer2-nav"></div>
+                    <div class="layer-nav layer3-nav"></div>
+                </div>
+                <div class="logo-text">SAFESHIELD</div>
+            </div>
+            <ul class="nav-links">
+                <li><a onclick="showSection('home')">Home</a></li>
+                <li><a onclick="showSection('services')">Services</a></li>
+                <li><a onclick="showSection('explorer')">Asbestos Guide</a></li>
+                <li><a onclick="showSection('contact')">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Protecting Your Home, Protecting Your Family</h1>
+            <p>Professional asbestos inspection and testing services in Manassas, Virginia and surrounding areas</p>
+            <button class="cta-button" onclick="showSection('contact')">Schedule Your Inspection</button>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>Residential Inspections</h3>
+                    <p>Comprehensive asbestos testing for homes built before 1980. We identify potential hazards in flooring, insulation, siding, and more.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔬</div>
+                    <h3>Laboratory Analysis</h3>
+                    <p>All samples analyzed by certified laboratories with fast turnaround times and detailed reporting.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Pre-Renovation Testing</h3>
+                    <p>Required testing before demolition or renovation work. We ensure compliance with EPA regulations.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✓</div>
+                    <h3>Detailed Reports</h3>
+                    <p>Clear, easy-to-understand reports with photos, sample locations, and professional recommendations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive House Explorer -->
+    <section id="explorer" class="interactive-section hidden">
+        <div class="container">
+            <h2 class="section-title">Where is Asbestos Found? Click to Explore</h2>
+            <div class="house-container">
+                <div class="room-display">
+                    <div class="ceiling"></div>
+                    <div class="wall wall-left"></div>
+                    <div class="wall wall-right"></div>
+                    <div class="pipe"></div>
+                    <div class="floor"></div>
+                    
+                    <!-- Hotspots -->
+                    <div class="hotspot" style="bottom: 25%; left: 45%;" onclick="showInfo('floor')" title="Click to learn about flooring">!</div>
+                    <div class="hotspot" style="top: 2%; left: 50%;" onclick="showInfo('ceiling')" title="Click to learn about ceiling">!</div>
+                    <div class="hotspot" style="top: 30%; left: 15%;" onclick="showInfo('walls')" title="Click to learn about walls">!</div>
+                    <div class="hotspot" style="top: 18%; right: 24%;" onclick="showInfo('pipes')" title="Click to learn about pipes">!</div>
+                </div>
+
+                <div id="info-panel" class="info-panel">
+                    <h3>Click the red markers to learn about common asbestos locations</h3>
+                    <p>Asbestos was widely used in building materials from the 1950s through the 1980s. Understanding where it's commonly found helps protect your family during renovations or purchases of older homes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section hidden">
+        <div class="container">
+            <h2 class="section-title">Get Your Free Quote</h2>
+            <div class="contact-container">
+                <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Property Address</label>
+                        <input type="text" id="address" name="address">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tell us about your project *</label>
+                        <textarea id="message" name="message" required placeholder="What type of inspection do you need? When was your home built? Any specific areas of concern?"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Request Inspection</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 SafeShield Inspections. Licensed and Insured. Serving Manassas, VA and surrounding areas.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Professional Asbestos Inspection Services</p>
+    </footer>
+
+    <script>
+        const asbestosInfo = {
+            floor: {
+                title: "Flooring Materials",
+                content: "Common asbestos in flooring includes black mastic adhesive under vinyl tiles, older linoleum, and vinyl sheet flooring. These were extremely popular from the 1950s-1980s. The black tar-like adhesive is often the biggest concern during renovation. Disturbing these materials can release dangerous fibers into the air."
+            },
+            ceiling: {
+                title: "Ceiling Tiles & Texture",
+                content: "Popcorn or textured ceilings installed before 1980 often contain asbestos. Ceiling tiles, especially acoustic or drop ceiling tiles, frequently contained asbestos fibers for fireproofing and soundproofing. Never sand, scrape, or disturb these materials without testing first."
+            },
+            walls: {
+                title: "Wall Materials & Insulation",
+                content: "Asbestos was used in drywall joint compound, textured paints, and wall insulation. Vermiculite insulation (often appearing as small, light-weight pebbles) may contain asbestos, particularly if it's Zonolite brand from Libby, Montana. Wall plaster and some wallboard products also contained asbestos."
+            },
+            pipes: {
+                title: "Pipe Insulation & Wrapping",
+                content: "White or gray pipe insulation, especially on heating pipes, boilers, and furnace ducts, commonly contained asbestos. The paper-like wrapping on pipes and the chalky covering on heating equipment are high-risk materials. This insulation can easily crumble and release fibers when damaged."
+            }
+        };
+
+        function showSection(section) {
+            document.querySelectorAll('section').forEach(s => {
+                if (s.id === 'home' || s.classList.contains('services')) {
+                    s.classList.add('hidden');
+                } else if (s.id === section || (section === 'home' && (s.classList.contains('hero') || s.classList.contains('services')))) {
+                    s.classList.remove('hidden');
+                } else {
+                    s.classList.add('hidden');
+                }
+            });
+
+            if (section === 'home') {
+                document.querySelector('.hero').classList.remove('hidden');
+                document.querySelector('.services').classList.remove('hidden');
+            }
+        }
+
+        function showInfo(location) {
+            const panel = document.getElementById('info-panel');
+            const info = asbestosInfo[location];
+            
+            panel.innerHTML = `
+                <h3>${info.title}</h3>
+                <p>${info.content}</p>
+            `;
+            panel.classList.add('active');
+            
+            setTimeout(() => panel.classList.remove('active'), 300);
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                address: formData.get('address'),
+                message: formData.get('message')
+            };
+
+            // Create mailto link
+            const subject = encodeURIComponent('Asbestos Inspection Request from ' + data.name);
+            const body = encodeURIComponent(
+                `Name: ${data.name}\n` +
+                `Email: ${data.email}\n` +
+                `Phone: ${data.phone}\n` +
+                `Address: ${data.address}\n\n` +
+                `Message:\n${data.message}`
+            );
+            
+            // Replace with your actual email
+            window.location.href = `mailto:youremail@safeshieldinspections.com?subject=${subject}&body=${body}`;
+            
+            alert('Thank you! Your default email client will open to send your request. If it doesn\'t open, please email us directly.');
+            event.target.reset();
+        }
+
+        // Show home section by default
+        showSection('home');
+    </script>
+</body>
+</html>
