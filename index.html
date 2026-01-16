@@ -205,7 +205,7 @@
         }
 
         .house-container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 2rem auto;
             background: white;
             border-radius: 20px;
@@ -213,86 +213,210 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.2);
         }
 
-        .room-display {
+        .house-view {
             position: relative;
             width: 100%;
-            height: 500px;
-            background: linear-gradient(180deg, #e8f4f8 0%, #d4e8f0 50%, #c9a87c 50%, #a68a5c 100%);
-            border-radius: 10px;
-            overflow: hidden;
+            height: 600px;
             margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* Room elements */
-        .wall {
+        /* Isometric House */
+        .iso-house {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            transform-style: preserve-3d;
+        }
+
+        /* Roof */
+        .roof {
             position: absolute;
-            background: #e8f4f8;
-            border: 2px solid #2c3e50;
-        }
-
-        .wall-left {
+            width: 0;
+            height: 0;
+            border-left: 250px solid transparent;
+            border-right: 250px solid transparent;
+            border-bottom: 150px solid #8b4513;
+            top: 50px;
             left: 0;
-            top: 0;
-            width: 30%;
-            height: 50%;
-            transform: skewY(-10deg);
-            transform-origin: bottom left;
-            background: #d4e8f0;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
         }
 
-        .wall-right {
-            right: 0;
-            top: 0;
-            width: 30%;
-            height: 50%;
-            transform: skewY(10deg);
-            transform-origin: bottom right;
-            background: #dbe8ef;
-        }
-
-        .floor {
+        .roof-ridge {
             position: absolute;
-            bottom: 0;
+            width: 500px;
+            height: 8px;
+            background: #654321;
+            top: 50px;
             left: 0;
+            transform: translateY(-4px);
+        }
+
+        /* Chimney */
+        .chimney {
+            position: absolute;
+            width: 50px;
+            height: 80px;
+            background: linear-gradient(to right, #8b0000, #a52a2a);
+            border: 2px solid #5a0000;
+            top: 80px;
+            right: 120px;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .chimney-top {
+            position: absolute;
+            width: 60px;
+            height: 12px;
+            background: #5a0000;
+            top: -6px;
+            left: -5px;
+            border-radius: 2px;
+        }
+
+        /* Front Wall */
+        .front-wall {
+            position: absolute;
+            width: 500px;
+            height: 300px;
+            background: linear-gradient(to bottom, #e8d5b7 0%, #d4b896 100%);
+            top: 200px;
+            left: 0;
+            border: 3px solid #8b7355;
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.1);
+        }
+
+        /* Side Wall */
+        .side-wall {
+            position: absolute;
+            width: 200px;
+            height: 300px;
+            background: linear-gradient(to right, #d4b896 0%, #c4a886 100%);
+            top: 200px;
+            left: 500px;
+            transform: skewY(-30deg);
+            transform-origin: top left;
+            border: 3px solid #8b7355;
+            border-left: none;
+            box-shadow: inset -10px 0 20px rgba(0,0,0,0.15);
+        }
+
+        /* Windows */
+        .window {
+            position: absolute;
+            width: 80px;
+            height: 100px;
+            background: linear-gradient(135deg, #87ceeb 0%, #4682b4 100%);
+            border: 4px solid #654321;
+            border-radius: 4px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        .window::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background: #654321;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .window::after {
+            content: '';
+            position: absolute;
             width: 100%;
-            height: 50%;
+            height: 2px;
+            background: #654321;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .window-left {
+            top: 80px;
+            left: 80px;
+        }
+
+        .window-right {
+            top: 80px;
+            right: 80px;
+        }
+
+        /* Door */
+        .door {
+            position: absolute;
+            width: 100px;
+            height: 150px;
+            background: linear-gradient(to bottom, #654321 0%, #4a3319 100%);
+            border: 4px solid #3d2914;
+            border-radius: 8px 8px 0 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.3);
+        }
+
+        .doorknob {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #ffd700;
+            border-radius: 50%;
+            right: 15px;
+            top: 50%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Foundation */
+        .foundation {
+            position: absolute;
+            width: 520px;
+            height: 40px;
+            background: linear-gradient(to bottom, #696969 0%, #505050 100%);
+            bottom: -20px;
+            left: -10px;
+            border: 2px solid #404040;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        }
+
+        /* Attic */
+        .attic-area {
+            position: absolute;
+            width: 400px;
+            height: 80px;
+            top: 100px;
+            left: 50px;
+            opacity: 0.3;
             background: repeating-linear-gradient(
-                90deg,
-                #c9a87c,
-                #c9a87c 50px,
-                #b8976b 50px,
-                #b8976b 100px
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(139, 69, 19, 0.3) 10px,
+                rgba(139, 69, 19, 0.3) 20px
             );
         }
 
-        .ceiling {
+        /* Basement indicator */
+        .basement {
             position: absolute;
-            top: 0;
-            left: 10%;
-            width: 80%;
-            height: 3%;
-            background: white;
-            border: 2px solid #2c3e50;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            width: 500px;
+            height: 30px;
+            background: linear-gradient(to bottom, rgba(80, 80, 80, 0.5), rgba(60, 60, 60, 0.7));
+            bottom: -20px;
+            left: 0;
+            border-top: 2px solid #404040;
         }
 
-        .pipe {
-            position: absolute;
-            width: 20px;
-            height: 80px;
-            background: linear-gradient(90deg, #7f8c8d, #95a5a6);
-            border: 2px solid #2c3e50;
-            border-radius: 10px;
-            top: 15%;
-            right: 25%;
-        }
-
+        /* Hotspot styling */
         .hotspot {
             position: absolute;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             background: #e74c3c;
-            border: 3px solid white;
+            border: 4px solid white;
             border-radius: 50%;
             cursor: pointer;
             animation: pulse 2s infinite;
@@ -301,46 +425,77 @@
             justify-content: center;
             color: white;
             font-weight: bold;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.5);
-            transition: transform 0.3s ease;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.6);
+            transition: all 0.3s ease;
+            z-index: 100;
         }
 
         .hotspot:hover {
-            transform: scale(1.2);
+            transform: scale(1.3);
             animation: none;
+            background: #c0392b;
         }
 
         @keyframes pulse {
             0%, 100% {
-                box-shadow: 0 4px 15px rgba(231, 76, 60, 0.5);
+                box-shadow: 0 4px 15px rgba(231, 76, 60, 0.6);
+                transform: scale(1);
             }
             50% {
-                box-shadow: 0 4px 25px rgba(231, 76, 60, 0.8);
+                box-shadow: 0 4px 30px rgba(231, 76, 60, 1);
+                transform: scale(1.1);
             }
         }
 
+        .hotspot-label {
+            position: absolute;
+            background: rgba(44, 62, 80, 0.95);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 101;
+        }
+
+        .hotspot:hover .hotspot-label {
+            opacity: 1;
+        }
+
+        /* Info Panel */
         .info-panel {
             background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 10px;
-            border-left: 5px solid #3498db;
-            min-height: 150px;
+            padding: 2.5rem;
+            border-radius: 15px;
+            border-left: 6px solid #3498db;
+            min-height: 180px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .info-panel h3 {
             color: #2c3e50;
             margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .info-panel p {
+            color: #555;
+            line-height: 1.8;
         }
 
         .info-panel.active {
-            animation: slideIn 0.3s ease;
+            animation: slideIn 0.4s ease;
         }
 
         @keyframes slideIn {
             from {
                 opacity: 0;
-                transform: translateY(10px);
+                transform: translateY(15px);
             }
             to {
                 opacity: 1;
@@ -437,8 +592,12 @@
                 font-size: 1.1rem;
             }
 
-            .room-display {
-                height: 400px;
+            .iso-house {
+                transform: scale(0.7);
+            }
+
+            .house-view {
+                height: 450px;
             }
         }
     </style>
@@ -506,24 +665,58 @@
     <section id="explorer" class="interactive-section hidden">
         <div class="container">
             <h2 class="section-title">Where is Asbestos Found? Click to Explore</h2>
+            <p style="text-align: center; color: #555; margin-bottom: 2rem;">Hover over the red markers to see labels, then click to learn more about common asbestos locations</p>
             <div class="house-container">
-                <div class="room-display">
-                    <div class="ceiling"></div>
-                    <div class="wall wall-left"></div>
-                    <div class="wall wall-right"></div>
-                    <div class="pipe"></div>
-                    <div class="floor"></div>
-                    
-                    <!-- Hotspots -->
-                    <div class="hotspot" style="bottom: 25%; left: 45%;" onclick="showInfo('floor')" title="Click to learn about flooring">!</div>
-                    <div class="hotspot" style="top: 2%; left: 50%;" onclick="showInfo('ceiling')" title="Click to learn about ceiling">!</div>
-                    <div class="hotspot" style="top: 30%; left: 15%;" onclick="showInfo('walls')" title="Click to learn about walls">!</div>
-                    <div class="hotspot" style="top: 18%; right: 24%;" onclick="showInfo('pipes')" title="Click to learn about pipes">!</div>
+                <div class="house-view">
+                    <div class="iso-house">
+                        <div class="roof"></div>
+                        <div class="roof-ridge"></div>
+                        <div class="attic-area"></div>
+                        <div class="chimney">
+                            <div class="chimney-top"></div>
+                        </div>
+                        <div class="front-wall">
+                            <div class="window window-left"></div>
+                            <div class="window window-right"></div>
+                            <div class="door">
+                                <div class="doorknob"></div>
+                            </div>
+                        </div>
+                        <div class="side-wall"></div>
+                        <div class="foundation"></div>
+                        <div class="basement"></div>
+
+                        <!-- Hotspots with labels -->
+                        <div class="hotspot" style="top: 100px; left: 200px;" onclick="showInfo('attic')">
+                            !
+                            <div class="hotspot-label" style="top: -35px; left: 50%; transform: translateX(-50%);">Attic Insulation</div>
+                        </div>
+                        <div class="hotspot" style="top: 80px; left: 80px;" onclick="showInfo('roof')">
+                            !
+                            <div class="hotspot-label" style="top: -35px; left: 50%; transform: translateX(-50%);">Roof Shingles</div>
+                        </div>
+                        <div class="hotspot" style="top: 280px; left: 50px;" onclick="showInfo('siding')">
+                            !
+                            <div class="hotspot-label" style="top: -35px; left: 50%; transform: translateX(-50%);">Wall Siding</div>
+                        </div>
+                        <div class="hotspot" style="bottom: 50px; left: 150px;" onclick="showInfo('flooring')">
+                            !
+                            <div class="hotspot-label" style="top: -35px; left: 50%; transform: translateX(-50%);">Floor Tiles</div>
+                        </div>
+                        <div class="hotspot" style="top: 120px; right: 80px;" onclick="showInfo('pipes')">
+                            !
+                            <div class="hotspot-label" style="top: -35px; right: -20px;">Pipe Wrapping</div>
+                        </div>
+                        <div class="hotspot" style="bottom: 10px; left: 250px;" onclick="showInfo('basement')">
+                            !
+                            <div class="hotspot-label" style="top: -35px; left: 50%; transform: translateX(-50%);">Basement</div>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="info-panel" class="info-panel">
-                    <h3>Click the red markers to learn about common asbestos locations</h3>
-                    <p>Asbestos was widely used in building materials from the 1950s through the 1980s. Understanding where it's commonly found helps protect your family during renovations or purchases of older homes.</p>
+                    <h3>Welcome to the Interactive Asbestos Guide</h3>
+                    <p>Click any of the red markers on the house above to learn where asbestos is commonly found in older homes. This interactive guide helps you understand potential hazards before starting any renovation project.</p>
                 </div>
             </div>
         </div>
@@ -569,21 +762,29 @@
 
     <script>
         const asbestosInfo = {
-            floor: {
-                title: "Flooring Materials",
-                content: "Common asbestos in flooring includes black mastic adhesive under vinyl tiles, older linoleum, and vinyl sheet flooring. These were extremely popular from the 1950s-1980s. The black tar-like adhesive is often the biggest concern during renovation. Disturbing these materials can release dangerous fibers into the air."
+            attic: {
+                title: "Attic Insulation",
+                content: "Vermiculite insulation in attics, particularly Zonolite brand from Libby, Montana, often contains asbestos. It appears as small, lightweight, pebble-like pieces in silver-gold or gray-brown colors. Never disturb this insulation yourself - it requires professional removal. Blown-in insulation from before 1980 may also contain asbestos fibers."
             },
-            ceiling: {
-                title: "Ceiling Tiles & Texture",
-                content: "Popcorn or textured ceilings installed before 1980 often contain asbestos. Ceiling tiles, especially acoustic or drop ceiling tiles, frequently contained asbestos fibers for fireproofing and soundproofing. Never sand, scrape, or disturb these materials without testing first."
+            roof: {
+                title: "Roof Shingles & Felt",
+                content: "Asbestos cement roof shingles were extremely common from the 1920s through the 1980s. They're durable and fire-resistant, which is why they were so popular. The felt paper underneath shingles may also contain asbestos. These materials are generally safe when left undisturbed, but cutting, breaking, or removing them releases dangerous fibers."
             },
-            walls: {
-                title: "Wall Materials & Insulation",
-                content: "Asbestos was used in drywall joint compound, textured paints, and wall insulation. Vermiculite insulation (often appearing as small, light-weight pebbles) may contain asbestos, particularly if it's Zonolite brand from Libby, Montana. Wall plaster and some wallboard products also contained asbestos."
+            siding: {
+                title: "Exterior Siding & Shingles",
+                content: "Cement asbestos siding and shingles were used extensively on homes built between 1930-1980. They're flat or corrugated panels, often textured to look like wood grain. These products are typically 12-18% asbestos and remain safe when painted and intact, but become hazardous when damaged, drilled, or cut during renovation."
+            },
+            flooring: {
+                title: "Floor Tiles & Adhesive",
+                content: "9x9 inch and 12x12 inch vinyl floor tiles manufactured before 1980 frequently contain asbestos. More importantly, the black mastic adhesive underneath these tiles almost always contains asbestos. This tar-like adhesive is the primary concern during flooring removal projects. Sheet vinyl flooring backing may also contain asbestos fibers."
             },
             pipes: {
                 title: "Pipe Insulation & Wrapping",
-                content: "White or gray pipe insulation, especially on heating pipes, boilers, and furnace ducts, commonly contained asbestos. The paper-like wrapping on pipes and the chalky covering on heating equipment are high-risk materials. This insulation can easily crumble and release fibers when damaged."
+                content: "White or gray corrugated paper or cloth wrapping around heating pipes, hot water pipes, and steam pipes commonly contains asbestos, especially in homes built before 1980. The chalky white coating on pipes and boilers (often called 'mud') frequently contains 15-100% asbestos. This material easily crumbles when disturbed, releasing dangerous fibers into the air."
+            },
+            basement: {
+                title: "Basement & Furnace Areas",
+                content: "Basements often contain multiple asbestos hazards: furnace insulation and gaskets, boiler wrapping, pipe insulation, old floor tiles, and ceiling tiles. The ductwork and furnace door seals frequently contain asbestos. Older coal-fired furnace rooms may have extensive asbestos insulation. Always test before disturbing any materials in these areas."
             }
         };
 
@@ -629,26 +830,9 @@
                 message: formData.get('message')
             };
 
-            // Create mailto link
             const subject = encodeURIComponent('Asbestos Inspection Request from ' + data.name);
             const body = encodeURIComponent(
                 `Name: ${data.name}\n` +
                 `Email: ${data.email}\n` +
                 `Phone: ${data.phone}\n` +
-                `Address: ${data.address}\n\n` +
-                `Message:\n${data.message}`
-            );
-            
-            // Replace with your actual email
-            window.location.href = `mailto:youremail@safeshieldinspections.com?subject=${subject}&body=${body}`;
-            
-            alert('Thank you! Your default email client will open to send your request. If it doesn\'t open, please email us directly.');
-            event.target.reset();
-        }
-
-        // Show home section by default
-        showSection('home');
-    </script>
-</body>
-
-</html>
+                `Address: ${data.address}\
