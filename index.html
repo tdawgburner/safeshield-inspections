@@ -112,6 +112,66 @@
             color: white;
             padding: 8rem 2rem 6rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="10" y="50" font-size="40" fill="rgba(255,255,255,0.03)" font-family="Arial">🏠</text></svg>'),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="10" y="50" font-size="40" fill="rgba(255,255,255,0.03)" font-family="Arial">🔬</text></svg>'),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="10" y="50" font-size="40" fill="rgba(255,255,255,0.03)" font-family="Arial">⚠️</text></svg>'),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="10" y="50" font-size="40" fill="rgba(255,255,255,0.03)" font-family="Arial">✓</text></svg>');
+            background-size: 100px 100px;
+            background-position: 0 0, 200px 100px, 400px 50px, 600px 150px;
+            animation: float 60s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+            100% {
+                transform: translateX(-200px) translateY(-100px);
+            }
+        }
+
+        .services {
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="10" y="50" font-size="50" fill="rgba(52,152,219,0.02)" font-family="Arial">🧪</text></svg>'),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="10" y="50" font-size="50" fill="rgba(52,152,219,0.02)" font-family="Arial">🏗️</text></svg>');
+            background-size: 150px 150px;
+            background-position: 100px 50px, 500px 200px;
+            animation: float-slow 80s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float-slow {
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+            100% {
+                transform: translateX(100px) translateY(50px);
+            }
         }
 
         .hero h1 {
@@ -159,8 +219,16 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .service-card {
@@ -286,6 +354,42 @@
         .form-group textarea {
             min-height: 150px;
             resize: vertical;
+        }
+
+        .checkbox-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .checkbox-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .checkbox-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.8rem;
+            margin-top: 0.8rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .checkbox-item label {
+            font-weight: normal;
+            cursor: pointer;
+            margin: 0;
         }
 
         .submit-btn {
@@ -714,24 +818,78 @@
     <section id="why" class="page-section hidden" style="background: #f8f9fa;">
         <div class="container">
             <h2 class="section-title">Why Professional Testing Matters</h2>
+            
             <div class="content-block">
-                <h3>Legal Requirements</h3>
-                <p>Virginia regulations require professional asbestos testing before renovation or demolition projects. Violations can result in fines ranging from $25,000 to $75,000 per day.</p>
+                <h3>The Critical Danger: Airborne Asbestos Fibers</h3>
+                <p><strong>Asbestos becomes deadly when it becomes airborne.</strong> Intact asbestos materials pose minimal risk, but when disturbed during renovation, demolition, or even minor repairs, microscopic fibers are released into the air where they can remain suspended for hours or even days.</p>
+                <p>These invisible fibers are 50 to 200 times thinner than a human hair. Once airborne, they can:</p>
                 <ul>
-                    <li>Potential criminal charges for property owners</li>
-                    <li>Project delays and costly remediation</li>
-                    <li>Insurance claim denials</li>
+                    <li><strong>Travel throughout your entire home</strong> via HVAC systems and air currents</li>
+                    <li><strong>Settle on furniture, carpets, and clothing</strong> where they can be disturbed again and again</li>
+                    <li><strong>Be inhaled deep into lung tissue</strong> where they become permanently lodged</li>
+                    <li><strong>Contaminate areas far from the original disturbance</strong>, putting your entire family at risk</li>
+                    <li><strong>Remain dangerous for decades</strong> - asbestos fibers don't break down or lose toxicity over time</li>
                 </ul>
+                <p><strong>Worst-case scenario:</strong> Homeowners who unknowingly sand, cut, drill, or demolish asbestos-containing materials create massive fiber releases. These catastrophic exposures can lead to mesothelioma diagnoses 20-50 years later, when it's too late for prevention. Professional testing identifies these hazards before any disturbance occurs.</p>
             </div>
             
             <div class="content-block">
-                <h3>Health Risks</h3>
-                <p>Asbestos exposure causes devastating diseases that can remain dormant for 20-50 years:</p>
+                <h3>Federal & Virginia Legal Requirements</h3>
+                <p>Multiple layers of federal and state regulations mandate professional asbestos testing to protect workers, residents, and the environment:</p>
+                
+                <p><strong>EPA NESHAP Regulations (National Emission Standards for Hazardous Air Pollutants):</strong></p>
                 <ul>
-                    <li><strong>Mesothelioma:</strong> Aggressive cancer with no cure</li>
-                    <li><strong>Lung Cancer:</strong> Significantly increased risk</li>
-                    <li><strong>Asbestosis:</strong> Chronic scarring of lung tissue</li>
+                    <li>Requires asbestos inspection before any renovation or demolition in buildings built before 1980</li>
+                    <li>Applies to residential and commercial properties</li>
+                    <li>Mandates use of EPA-accredited inspectors</li>
+                    <li>Violations carry fines up to $75,000 per day per violation</li>
                 </ul>
+                
+                <p><strong>Virginia Department of Environmental Quality (DEQ) Requirements:</strong></p>
+                <ul>
+                    <li>Enforces Virginia Asbestos NESHAP regulations with additional state-specific requirements</li>
+                    <li>Requires proper notification before asbestos work begins</li>
+                    <li>Mandates licensed asbestos professionals for inspection and removal</li>
+                    <li>Imposes criminal penalties for knowing violations, including imprisonment</li>
+                </ul>
+                
+                <p><strong>OSHA Regulations for Worker Protection:</strong></p>
+                <ul>
+                    <li>Contractors must know about asbestos presence before starting work</li>
+                    <li>Property owners can be held liable for contractor exposure</li>
+                    <li>Failure to disclose known asbestos can result in lawsuits and penalties</li>
+                </ul>
+                
+                <p style="background: #fff3cd; padding: 1.5rem; border-radius: 8px; border-left: 5px solid #ffc107; margin-top: 1.5rem;">
+                    <strong style="color: #856404;">Critical Legal Fact:</strong> Even if your contractor says "don't worry about it," <strong>you as the property owner remain legally liable</strong> for asbestos violations. Fines, criminal charges, and civil lawsuits can all be directed at homeowners who skip required testing. The cost of testing is always less than the cost of violations.
+                </p>
+            </div>
+            
+            <div class="content-block">
+                <h3>Health Risks: No Safe Level of Exposure</h3>
+                <p>Medical experts agree: <strong>there is no safe level of asbestos exposure.</strong> Even a single exposure event can lead to deadly diseases decades later:</p>
+                <ul>
+                    <li><strong>Mesothelioma:</strong> Aggressive cancer affecting lung and abdominal lining. Average survival is 12-21 months after diagnosis. No cure exists. Caused almost exclusively by asbestos exposure.</li>
+                    <li><strong>Lung Cancer:</strong> Asbestos exposure increases lung cancer risk 5-fold. Combined with smoking, risk increases 50-90 fold. Symptoms don't appear until cancer is advanced.</li>
+                    <li><strong>Asbestosis:</strong> Chronic scarring of lung tissue causing progressive breathing difficulties, heart failure, and premature death. No treatment can reverse the damage.</li>
+                    <li><strong>Pleural Disease:</strong> Thickening and calcification of lung lining, causing painful breathing and reduced lung capacity.</li>
+                </ul>
+                <p><strong>The 20-50 Year Time Bomb:</strong> Asbestos diseases have extremely long latency periods. You could expose your family today and not see symptoms until 2044-2074. By then, the damage is irreversible and usually fatal. This is why prevention through testing is the only defense.</p>
+                <p><strong>Children are especially vulnerable:</strong> Because of their smaller size and developing bodies, children face higher risks from the same exposure levels. They also have more years for diseases to develop, meaning childhood exposure has the longest time to cause harm.</p>
+            </div>
+
+            <div class="content-block">
+                <h3>Why DIY Testing Fails and Makes Things Worse</h3>
+                <p>Home test kits and DIY sampling are not just ineffective - they actively create the dangers they claim to detect:</p>
+                <ul>
+                    <li><strong>Releases fibers during sampling:</strong> Breaking, cutting, or scraping materials to collect samples releases massive amounts of asbestos into your home's air</li>
+                    <li><strong>Cross-contamination:</strong> Improper handling contaminates your home and vehicle with asbestos fibers</li>
+                    <li><strong>False negatives:</strong> Missing asbestos materials due to inadequate sampling leaves dangerous materials unidentified</li>
+                    <li><strong>No legal validity:</strong> Permits, contractors, and insurance companies reject DIY test results</li>
+                    <li><strong>No containment protocols:</strong> Professional testing uses HEPA filtration, containment barriers, and proper disposal</li>
+                    <li><strong>No risk assessment:</strong> Even if you find asbestos, you won't know the friability level, condition, or proper response</li>
+                </ul>
+                <p>Professional inspectors are trained to identify and sample materials without fiber release, use proper containment, and provide legally defensible documentation that protects your family and satisfies regulatory requirements.</p>
             </div>
 
             <div class="content-block">
@@ -741,7 +899,7 @@
                         How much does testing cost?
                     </div>
                     <div class="faq-answer">
-                        <p>Professional testing typically costs a few hundred dollars depending on property size and number of samples needed. This is a fraction of the cost compared to potential fines and health risks.</p>
+                        <p>Professional testing typically costs $300-800 depending on property size and number of samples needed. Compare this to: EPA fines of $75,000 per day, emergency remediation costs of $50,000+, medical costs for asbestos diseases exceeding $500,000, and the incalculable cost of losing a family member to mesothelioma. Testing is the best investment you'll ever make in your home.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -749,7 +907,7 @@
                         How long does an inspection take?
                     </div>
                     <div class="faq-answer">
-                        <p>Most residential inspections are completed within 1-2 hours. Full analysis reports are typically delivered within 3-5 business days.</p>
+                        <p>Most residential inspections are completed within 1-2 hours. We collect carefully documented samples, photograph locations, and seal samples for laboratory analysis. Full analysis reports with detailed recommendations are typically delivered within 3-5 business days. Rush service available for time-sensitive projects.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -757,7 +915,31 @@
                         When was asbestos banned?
                     </div>
                     <div class="faq-answer">
-                        <p>Asbestos has never been fully banned in the United States. While most uses were phased out by the late 1980s, certain products can still legally contain asbestos today.</p>
+                        <p>This is a dangerous misconception: asbestos has NEVER been fully banned in the United States. While most uses were phased out in the 1970s-1980s, asbestos is still legal in brake pads, roofing materials, and other products. Homes built before 1990 are very likely to contain asbestos. Even homes built in the 2000s may contain asbestos from imported materials or recycled content. Never assume your home is asbestos-free based on age alone.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Do I need to be home during the inspection?
+                    </div>
+                    <div class="faq-answer">
+                        <p>You don't need to be present for the entire inspection, but we recommend being available at the beginning to discuss your renovation plans, show us areas of concern, and understand what we're testing. We'll explain our containment procedures and answer any questions. You're welcome to observe, though many clients prefer to leave during sampling to avoid any exposure risk.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        What if asbestos is found?
+                    </div>
+                    <div class="faq-answer">
+                        <p>Finding asbestos doesn't mean panic or immediate danger. Asbestos materials in good condition that won't be disturbed can often be left in place and monitored. Your report will provide specific recommendations for each material: leave in place, encapsulate, or remove. We'll explain the condition, friability level, and risk factors. If removal is needed, we can connect you with licensed abatement contractors and help you understand all your options and costs.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Can I renovate without testing if my home is newer?
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely not, for both legal and safety reasons. Virginia and federal regulations require testing regardless of building age. Many materials manufactured overseas or from recycled sources contained asbestos well into the 2000s. We've found asbestos in homes built in 2003. Testing protects you legally, financially, and medically - regardless of your home's age.</p>
                     </div>
                 </div>
             </div>
@@ -784,9 +966,46 @@
                     <label for="address">Property Address</label>
                     <input type="text" id="address" name="address">
                 </div>
+                <div class="checkbox-group">
+                    <label>Which area(s) of your home need testing? (Select all that apply)</label>
+                    <div class="checkbox-options">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="area-attic" name="areas" value="Attic/Insulation">
+                            <label for="area-attic">Attic/Insulation</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="area-roof" name="areas" value="Roof/Shingles">
+                            <label for="area-roof">Roof/Shingles</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="area-siding" name="areas" value="Exterior Siding">
+                            <label for="area-siding">Exterior Siding</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="area-flooring" name="areas" value="Flooring/Tiles">
+                            <label for="area-flooring">Flooring/Tiles</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="area-basement" name="areas" value="Basement/Pipes">
+                            <label for="area-basement">Basement/Pipes</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="area-walls" name="areas" value="Interior Walls">
+                            <label for="area-walls">Interior Walls</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="area-ceiling" name="areas" value="Ceiling/Popcorn">
+                            <label for="area-ceiling">Ceiling/Popcorn</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="area-other" name="areas" value="Other/Unsure">
+                            <label for="area-other">Other/Unsure</label>
+                        </div>
+                    </div>
+                </div>
                 <div class="form-group">
-                    <label for="message">Tell us about your project *</label>
-                    <textarea id="message" name="message" required placeholder="What type of inspection do you need? When was your home built?"></textarea>
+                    <label for="message">Additional Details *</label>
+                    <textarea id="message" name="message" required placeholder="When was your home built? What type of renovation are you planning? Any specific concerns?"></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Request Inspection</button>
             </form>
@@ -1001,14 +1220,22 @@
             var phone = document.getElementById('phone').value;
             var address = document.getElementById('address').value;
             var message = document.getElementById('message').value;
+            
+            var checkboxes = document.querySelectorAll('input[name="areas"]:checked');
+            var selectedAreas = [];
+            for (var i = 0; i < checkboxes.length; i++) {
+                selectedAreas.push(checkboxes[i].value);
+            }
+            var areasText = selectedAreas.length > 0 ? selectedAreas.join(', ') : 'Not specified';
 
             var subject = encodeURIComponent('Asbestos Inspection Request from ' + name);
             var body = encodeURIComponent(
                 'Name: ' + name + '\n' +
                 'Email: ' + email + '\n' +
                 'Phone: ' + phone + '\n' +
-                'Address: ' + address + '\n\n' +
-                'Message:\n' + message
+                'Address: ' + address + '\n' +
+                'Areas needing testing: ' + areasText + '\n\n' +
+                'Additional Details:\n' + message
             );
             
             window.location.href = 'mailto:youremail@safeshieldinspections.com?subject=' + subject + '&body=' + body;
