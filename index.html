@@ -102,6 +102,69 @@
             color: #3498db;
         }
 
+        /* Hamburger button - hidden on desktop */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Mobile nav drawer */
+        .mobile-nav {
+            display: none;
+            background: #2c3e50;
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .mobile-nav.open {
+            max-height: 400px;
+            padding: 1rem 0;
+        }
+
+        .mobile-nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 0.9rem 2rem;
+            font-weight: 600;
+            font-size: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            transition: background 0.2s ease;
+        }
+
+        .mobile-nav a:hover {
+            background: rgba(52, 152, 219, 0.2);
+            color: #3498db;
+        }
+
         .page-section {
             min-height: 400px;
             padding: 4rem 2rem;
@@ -135,12 +198,8 @@
         }
 
         @keyframes float {
-            0% {
-                transform: translateX(0) translateY(0);
-            }
-            100% {
-                transform: translateX(-200px) translateY(-100px);
-            }
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(-200px) translateY(-100px); }
         }
 
         .services {
@@ -152,10 +211,7 @@
         .services::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background-image: 
                 url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="10" y="50" font-size="50" fill="rgba(52,152,219,0.02)" font-family="Arial">🧪</text></svg>'),
                 url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="10" y="50" font-size="50" fill="rgba(52,152,219,0.02)" font-family="Arial">🏗️</text></svg>');
@@ -166,12 +222,8 @@
         }
 
         @keyframes float-slow {
-            0% {
-                transform: translateX(0) translateY(0);
-            }
-            100% {
-                transform: translateX(100px) translateY(50px);
-            }
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(100px) translateY(50px); }
         }
 
         .hero h1 {
@@ -201,10 +253,6 @@
             transform: translateY(-2px);
         }
 
-        .services {
-            background: white;
-        }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -223,12 +271,6 @@
             gap: 2rem;
             max-width: 900px;
             margin: 0 auto;
-        }
-
-        @media (max-width: 768px) {
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
         .service-card {
@@ -304,9 +346,7 @@
             font-size: 1.1rem;
         }
 
-        .faq-question:hover {
-            background: #34495e;
-        }
+        .faq-question:hover { background: #34495e; }
 
         .faq-answer {
             padding: 0 1.5rem;
@@ -404,9 +444,7 @@
             width: 100%;
         }
 
-        .submit-btn:hover {
-            background: #2980b9;
-        }
+        .submit-btn:hover { background: #2980b9; }
 
         footer {
             background: #2c3e50;
@@ -415,267 +453,7 @@
             padding: 2rem;
         }
 
-        .hidden {
-            display: none;
-        }
-
-        .house-view {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            height: 600px;
-            margin: 2rem auto;
-            background: #87CEEB;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .modern-house {
-            position: absolute;
-            width: 600px;
-            height: 400px;
-            bottom: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .garage {
-            position: absolute;
-            width: 200px;
-            height: 180px;
-            background: linear-gradient(to bottom, #b8956e 0%, #a07d5a 100%);
-            border: 3px solid #6d5638;
-            bottom: 0;
-            left: 0;
-            border-radius: 5px 5px 0 0;
-        }
-
-        .garage-door {
-            position: absolute;
-            width: 160px;
-            height: 140px;
-            background: linear-gradient(to bottom, #8b7355 0%, #6d5638 100%);
-            border: 3px solid #4a3822;
-            bottom: 0;
-            left: 20px;
-            border-radius: 3px 3px 0 0;
-        }
-
-        .garage-door-line {
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background: #4a3822;
-        }
-
-        .main-house {
-            position: absolute;
-            width: 400px;
-            height: 250px;
-            background: linear-gradient(to bottom, #f5deb3 0%, #deb887 100%);
-            border: 3px solid #8b7355;
-            bottom: 0;
-            right: 0;
-            border-radius: 5px 5px 0 0;
-        }
-
-        .main-roof {
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-left: 210px solid transparent;
-            border-right: 210px solid transparent;
-            border-bottom: 120px solid #8b4513;
-            top: -120px;
-            right: -10px;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-        }
-
-        .garage-roof {
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-left: 110px solid transparent;
-            border-right: 110px solid transparent;
-            border-bottom: 80px solid #a0522d;
-            top: -80px;
-            left: -10px;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-        }
-
-        .chimney {
-            position: absolute;
-            width: 40px;
-            height: 100px;
-            background: linear-gradient(to right, #8b0000, #a52a2a);
-            border: 2px solid #5a0000;
-            top: -180px;
-            right: 80px;
-            border-radius: 3px;
-        }
-
-        .chimney-top {
-            position: absolute;
-            width: 50px;
-            height: 10px;
-            background: #5a0000;
-            top: -5px;
-            left: -5px;
-            border-radius: 2px;
-        }
-
-        .house-window {
-            position: absolute;
-            width: 70px;
-            height: 90px;
-            background: linear-gradient(135deg, #87ceeb 0%, #6495ed 100%);
-            border: 4px solid #4a3822;
-            border-radius: 5px;
-        }
-
-        .window-pane {
-            position: absolute;
-            width: 2px;
-            height: 100%;
-            background: #4a3822;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .window-pane-h {
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background: #4a3822;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .window-left {
-            top: 60px;
-            left: 40px;
-        }
-
-        .window-right {
-            top: 60px;
-            right: 40px;
-        }
-
-        .front-door {
-            position: absolute;
-            width: 80px;
-            height: 140px;
-            background: linear-gradient(to bottom, #654321 0%, #4a3319 100%);
-            border: 4px solid #3d2914;
-            border-radius: 8px 8px 0 0;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .door-window {
-            position: absolute;
-            width: 50px;
-            height: 40px;
-            background: #87ceeb;
-            border: 2px solid #3d2914;
-            border-radius: 4px;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .doorknob {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: #ffd700;
-            border-radius: 50%;
-            right: 10px;
-            top: 70px;
-        }
-
-        .foundation {
-            position: absolute;
-            width: 100%;
-            height: 30px;
-            background: linear-gradient(to bottom, #696969 0%, #505050 100%);
-            border: 2px solid #404040;
-            bottom: -30px;
-            left: 0;
-        }
-
-        .driveway {
-            position: absolute;
-            width: 200px;
-            height: 100px;
-            background: repeating-linear-gradient(90deg, #708090, #708090 20px, #657380 20px, #657380 40px);
-            bottom: -130px;
-            left: 0;
-            border: 2px solid #505050;
-        }
-
-        .grass {
-            position: absolute;
-            width: 100%;
-            height: 150px;
-            background: linear-gradient(to bottom, #228b22 0%, #006400 100%);
-            bottom: -150px;
-            left: 0;
-        }
-
-        .hotspot {
-            position: absolute;
-            width: 45px;
-            height: 45px;
-            background: #e74c3c;
-            border: 4px solid white;
-            border-radius: 50%;
-            cursor: pointer;
-            animation: pulse-spot 2s infinite;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.3rem;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.6);
-            z-index: 100;
-        }
-
-        .hotspot:hover {
-            transform: scale(1.3);
-            animation: none;
-            background: #c0392b;
-        }
-
-        @keyframes pulse-spot {
-            0%, 100% {
-                box-shadow: 0 4px 15px rgba(231, 76, 60, 0.6);
-            }
-            50% {
-                box-shadow: 0 4px 30px rgba(231, 76, 60, 1);
-            }
-        }
-
-        .hotspot-label {
-            position: absolute;
-            background: rgba(44, 62, 80, 0.95);
-            color: white;
-            padding: 8px 14px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            white-space: nowrap;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 101;
-        }
-
-        .hotspot:hover .hotspot-label {
-            opacity: 1;
-        }
+        .hidden { display: none; }
 
         .info-panel {
             max-width: 800px;
@@ -698,48 +476,6 @@
             line-height: 1.8;
         }
 
-        .map-visual {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            height: 500px;
-            background: linear-gradient(135deg, #e8f4f8 0%, #d4e8f0 100%);
-            border-radius: 10px;
-            border: 3px solid #2c3e50;
-            margin: 2rem auto;
-        }
-
-        .radius-circle {
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            border: 4px dashed #3498db;
-            border-radius: 50%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: radial-gradient(circle, rgba(52, 152, 219, 0.2), transparent 70%);
-        }
-
-        .center-point {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            background: #e74c3c;
-            border-radius: 50%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 0.85rem;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.5);
-        }
-
         .coverage-cities {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -757,6 +493,130 @@
             color: #2c3e50;
             border: 2px solid #ecf0f1;
         }
+
+        /* =============================================
+           MOBILE RESPONSIVE STYLES
+           Only activate on screens 768px and below.
+           Desktop styles above are untouched.
+        ============================================= */
+        @media (max-width: 768px) {
+
+            /* Hide desktop nav links, show hamburger */
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            /* Show mobile nav drawer */
+            .mobile-nav {
+                display: block;
+            }
+
+            .nav-container {
+                padding: 0 1.2rem;
+            }
+
+            .logo-text {
+                font-size: 1.2rem;
+            }
+
+            /* Hero section */
+            .hero {
+                padding: 4rem 1.5rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+                line-height: 1.3;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .cta-button {
+                padding: 0.85rem 2rem;
+                font-size: 1rem;
+            }
+
+            /* Section padding */
+            .page-section {
+                padding: 2.5rem 1.2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
+            }
+
+            /* Services grid - single column on mobile */
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+            }
+
+            /* Content blocks */
+            .content-block {
+                padding: 1.5rem;
+            }
+
+            .content-block h3 {
+                font-size: 1.4rem;
+            }
+
+            /* FAQ */
+            .faq-question {
+                font-size: 0.95rem;
+                padding: 1.1rem;
+            }
+
+            /* Contact form */
+            .checkbox-options {
+                grid-template-columns: 1fr;
+            }
+
+            /* Coverage cities */
+            .coverage-cities {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            /* Info panel */
+            .info-panel {
+                padding: 1.5rem;
+            }
+
+            /* SVG guide - make it scrollable on small screens */
+            #guide .container > div {
+                padding: 1.5rem !important;
+                overflow-x: auto;
+            }
+
+            #guide svg {
+                min-width: 500px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .coverage-cities {
+                grid-template-columns: 1fr;
+            }
+
+            .logo-text {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -770,6 +630,7 @@
                 </div>
                 <div class="logo-text">SAFESHIELD</div>
             </div>
+            <!-- Desktop nav -->
             <ul class="nav-links">
                 <li><a href="#" onclick="navigateTo('home'); return false;">Home</a></li>
                 <li><a href="#" onclick="navigateTo('services'); return false;">Services</a></li>
@@ -778,6 +639,21 @@
                 <li><a href="#" onclick="navigateTo('coverage'); return false;">Coverage Area</a></li>
                 <li><a href="#" onclick="navigateTo('contact'); return false;">Contact</a></li>
             </ul>
+            <!-- Hamburger button for mobile -->
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" onclick="toggleMobileNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <!-- Mobile nav drawer -->
+        <div class="mobile-nav" id="mobileNav">
+            <a href="#" onclick="navigateTo('home'); closeMobileNav(); return false;">Home</a>
+            <a href="#" onclick="navigateTo('services'); closeMobileNav(); return false;">Services</a>
+            <a href="#" onclick="navigateTo('why'); closeMobileNav(); return false;">Why Testing</a>
+            <a href="#" onclick="navigateTo('guide'); closeMobileNav(); return false;">Asbestos Guide</a>
+            <a href="#" onclick="navigateTo('coverage'); closeMobileNav(); return false;">Coverage Area</a>
+            <a href="#" onclick="navigateTo('contact'); closeMobileNav(); return false;">Contact</a>
         </div>
     </nav>
 
@@ -853,7 +729,7 @@
                 </p>
                 
                 <p style="margin-top: 1.5rem;"><strong>Virginia Department of Environmental Quality (DEQ):</strong></p>
-                <p>Virginia enforces asbestos regulations that may include state-specific requirements in addition to federal rules. Property owners and contractors should verify current Virginia requirements.</p>
+                <p>Virginia enforces asbestos regulations that may include state-specific requirements in addition to federal rules.</p>
                 <ul>
                     <li>State notification and permitting requirements</li>
                     <li>Licensed asbestos professional requirements</li>
@@ -865,115 +741,62 @@
                 </p>
                 
                 <p style="margin-top: 1.5rem;"><strong>OSHA Worker Protection:</strong></p>
-                <p>The Occupational Safety and Health Administration has standards to protect workers from asbestos exposure. Property owners should be aware that contractors working on their property must comply with OSHA requirements.</p>
+                <p>OSHA has standards to protect workers from asbestos exposure. Property owners should be aware that contractors working on their property must comply with OSHA requirements.</p>
                 <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">
                     <strong>Source:</strong> OSHA Asbestos Standards<br>
                     Visit: <a href="https://www.osha.gov/asbestos" target="_blank" style="color: #3498db;">www.osha.gov/asbestos</a>
                 </p>
                 
                 <p style="background: #e8f4f8; padding: 1.5rem; border-radius: 8px; border-left: 5px solid #3498db; margin-top: 1.5rem;">
-                    <strong>Important:</strong> Regulations and enforcement vary by jurisdiction. Violations of asbestos regulations can result in substantial penalties, project delays, and legal liability. Professional testing helps ensure compliance with applicable requirements.
+                    <strong>Important:</strong> Regulations and enforcement vary by jurisdiction. Violations of asbestos regulations can result in substantial penalties, project delays, and legal liability.
                 </p>
             </div>
             
             <div class="content-block">
                 <h3>Health Risks: Understanding Asbestos-Related Diseases</h3>
-                <p>According to medical research and public health organizations, asbestos exposure is associated with serious health conditions. These diseases typically have long latency periods, meaning symptoms may not appear for many years after exposure.</p>
-                
-                <p><strong>Asbestos-related diseases include:</strong></p>
+                <p>According to medical research and public health organizations, asbestos exposure is associated with serious health conditions with long latency periods.</p>
                 <ul>
-                    <li><strong>Mesothelioma:</strong> A rare cancer primarily associated with asbestos exposure, affecting the lining of the lungs or abdomen</li>
-                    <li><strong>Lung Cancer:</strong> Asbestos exposure increases the risk of lung cancer, particularly in combination with smoking</li>
-                    <li><strong>Asbestosis:</strong> A chronic lung disease caused by inhaling asbestos fibers, leading to scarring of lung tissue</li>
+                    <li><strong>Mesothelioma:</strong> A rare cancer primarily associated with asbestos exposure</li>
+                    <li><strong>Lung Cancer:</strong> Risk increases with asbestos exposure, particularly combined with smoking</li>
+                    <li><strong>Asbestosis:</strong> Chronic lung disease caused by inhaling asbestos fibers</li>
                     <li><strong>Other conditions:</strong> Pleural thickening and other respiratory conditions</li>
                 </ul>
-                
-                <p style="margin-top: 1rem;"><strong>Key health considerations:</strong></p>
-                <ul>
-                    <li>Long latency period: Diseases may not appear for 10-40+ years after exposure</li>
-                    <li>No safe exposure level has been established</li>
-                    <li>All family members in the home during renovation may be at risk</li>
-                    <li>These diseases are generally considered preventable through proper precautions</li>
-                </ul>
-                
                 <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">
-                    <strong>Sources:</strong><br>
-                    • Centers for Disease Control and Prevention (CDC) - Asbestos<br>
-                    • Agency for Toxic Substances and Disease Registry (ATSDR)<br>
-                    • National Cancer Institute<br>
+                    <strong>Sources:</strong> CDC, ATSDR, National Cancer Institute<br>
                     Visit: <a href="https://www.cdc.gov/niosh/topics/asbestos" target="_blank" style="color: #3498db;">www.cdc.gov/niosh/topics/asbestos</a>
                 </p>
             </div>
 
             <div class="content-block">
-                <h3>Why Professional Testing is Recommended</h3>
-                <p>Professional asbestos testing offers several important advantages:</p>
-                <ul>
-                    <li><strong>Proper sampling techniques:</strong> Trained professionals use methods designed to minimize fiber release during sampling</li>
-                    <li><strong>Comprehensive assessment:</strong> Professionals can identify materials that may not be obvious to homeowners</li>
-                    <li><strong>Laboratory analysis:</strong> Samples are analyzed using specialized equipment and methods</li>
-                    <li><strong>Documentation:</strong> Professional reports provide documentation that may be required for permits, contractors, or compliance purposes</li>
-                    <li><strong>Risk assessment:</strong> Professionals can evaluate the condition and friability of materials</li>
-                    <li><strong>Recommendations:</strong> You receive guidance on appropriate next steps based on findings</li>
-                </ul>
-                
-                <p style="margin-top: 1.5rem;"><strong>Limitations of DIY testing:</strong></p>
-                <ul>
-                    <li>Risk of fiber release during improper sampling</li>
-                    <li>Potential for incomplete assessment</li>
-                    <li>May not meet regulatory or contractor requirements</li>
-                    <li>Lack of professional interpretation and recommendations</li>
-                </ul>
-            </div>
-
-            <div class="content-block">
                 <h3>Frequently Asked Questions</h3>
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        How much does professional testing cost?
-                    </div>
+                    <div class="faq-question" onclick="toggleFAQ(this)">How much does professional testing cost?</div>
                     <div class="faq-answer">
-                        <p>Professional testing costs vary based on property size, number of samples needed, and local market rates. Many homeowners find that the cost of testing is modest compared to potential regulatory penalties, remediation costs, and health risks. Contact us for a free quote specific to your property.</p>
+                        <p>Inspections start at $250 for basic testing. Contact us for a free quote specific to your property size and scope.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        How long does an inspection take?
-                    </div>
+                    <div class="faq-question" onclick="toggleFAQ(this)">How long does an inspection take?</div>
                     <div class="faq-answer">
-                        <p>Most residential inspections are completed within 1-2 hours, depending on property size and scope. We collect documented samples and photograph locations. Laboratory analysis typically takes 3-5 business days, with expedited service available for time-sensitive projects.</p>
+                        <p>Most residential inspections are completed within 1-2 hours. Laboratory analysis typically takes 3-5 business days, with expedited service available.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        When was asbestos use discontinued?
-                    </div>
+                    <div class="faq-question" onclick="toggleFAQ(this)">When was asbestos use discontinued?</div>
                     <div class="faq-answer">
-                        <p>Asbestos use in the United States was significantly reduced starting in the 1970s and 1980s, but asbestos has not been completely banned. Some asbestos-containing products remain legal. Homes built before 1980 are more likely to contain asbestos materials, but materials in newer homes may also contain asbestos. Professional testing is the only way to know for certain.</p>
+                        <p>Asbestos use was significantly reduced in the 1970s-80s but never fully banned. Homes built before 1980 are most likely to contain asbestos materials. Professional testing is the only way to know for certain.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        Do I need to be present during the inspection?
-                    </div>
+                    <div class="faq-question" onclick="toggleFAQ(this)">What if asbestos is found in my home?</div>
                     <div class="faq-answer">
-                        <p>You don't need to be present for the entire inspection, but we recommend being available at the beginning to discuss your renovation plans and show us areas of concern. We'll explain our procedures and answer your questions. You're welcome to observe the process.</p>
+                        <p>Finding asbestos doesn't necessarily mean immediate action is required. Intact materials may be left in place. Your report will include recommendations, which may include leaving in place, encapsulation, or removal by a licensed abatement contractor.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        What if asbestos is found in my home?
-                    </div>
+                    <div class="faq-question" onclick="toggleFAQ(this)">Is testing required for all renovation projects?</div>
                     <div class="faq-answer">
-                        <p>Finding asbestos doesn't necessarily mean immediate action is required. Asbestos materials in good condition that won't be disturbed may be left in place. Your report will include recommendations for each material found, which may include leaving in place, encapsulation, or removal. We'll explain your options and can connect you with qualified abatement contractors if needed.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        Is testing required for all renovation projects?
-                    </div>
-                    <div class="faq-answer">
-                        <p>Testing requirements depend on the scope of work, building characteristics, and applicable regulations. Some renovations trigger mandatory testing requirements under EPA and state regulations. Even when not legally required, testing is often recommended to protect your family's health and avoid unknowingly disturbing asbestos materials. We recommend consulting with regulatory authorities and qualified professionals about requirements for your specific project.</p>
+                        <p>Requirements depend on scope of work and applicable regulations. Some renovations trigger mandatory testing under EPA and Virginia state rules. Even when not legally required, testing is strongly recommended to protect your family.</p>
                     </div>
                 </div>
             </div>
@@ -1053,105 +876,53 @@
             
             <div style="max-width: 1000px; margin: 0 auto; background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.2);">
                 <svg viewBox="0 0 800 600" style="width: 100%; height: auto;">
-                    <!-- Sky background -->
                     <rect x="0" y="0" width="800" height="300" fill="#87CEEB"/>
-                    <!-- Ground -->
                     <rect x="0" y="500" width="800" height="100" fill="#228B22"/>
-                    
-                    <!-- EXTERIOR SIDE (LEFT) -->
-                    <!-- Roof exterior -->
                     <polygon points="50,200 200,100 200,200" fill="#8B4513" stroke="#654321" stroke-width="3"/>
-                    <!-- Chimney -->
                     <rect x="160" y="80" width="30" height="60" fill="#8B0000" stroke="#5A0000" stroke-width="2"/>
                     <rect x="155" y="75" width="40" height="10" fill="#5A0000"/>
-                    <!-- Wall exterior -->
                     <rect x="50" y="200" width="150" height="200" fill="#F5DEB3" stroke="#8B7355" stroke-width="3"/>
-                    <!-- Siding texture -->
                     <line x1="50" y1="220" x2="200" y2="220" stroke="#DEB887" stroke-width="1"/>
                     <line x1="50" y1="240" x2="200" y2="240" stroke="#DEB887" stroke-width="1"/>
                     <line x1="50" y1="260" x2="200" y2="260" stroke="#DEB887" stroke-width="1"/>
                     <line x1="50" y1="280" x2="200" y2="280" stroke="#DEB887" stroke-width="1"/>
-                    <!-- Window exterior -->
                     <rect x="80" y="250" width="60" height="80" fill="#87CEEB" stroke="#4A3822" stroke-width="4" rx="3"/>
                     <line x1="110" y1="250" x2="110" y2="330" stroke="#4A3822" stroke-width="2"/>
                     <line x1="80" y1="290" x2="140" y2="290" stroke="#4A3822" stroke-width="2"/>
-                    <!-- Foundation exterior -->
                     <rect x="50" y="400" width="150" height="100" fill="#696969" stroke="#404040" stroke-width="2"/>
-                    
-                    <!-- DIVIDING LINE -->
                     <line x1="400" y1="0" x2="400" y2="600" stroke="#2c3e50" stroke-width="4" stroke-dasharray="10,5"/>
                     <text x="400" y="30" text-anchor="middle" fill="#2c3e50" font-size="18" font-weight="bold">EXTERIOR | INTERIOR</text>
-                    
-                    <!-- INTERIOR SIDE (RIGHT) - CUTAWAY VIEW -->
-                    <!-- Attic space -->
                     <polygon points="420,200 600,100 600,200" fill="#E8E8E8" stroke="#999" stroke-width="2"/>
                     <text x="510" y="160" text-anchor="middle" fill="#666" font-size="14" font-weight="bold">ATTIC</text>
-                    <!-- Insulation pattern in attic -->
-                    <circle cx="480" cy="180" r="3" fill="#FFD700" opacity="0.6"/>
-                    <circle cx="495" cy="175" r="3" fill="#FFD700" opacity="0.6"/>
-                    <circle cx="510" cy="182" r="3" fill="#FFD700" opacity="0.6"/>
-                    <circle cx="525" cy="178" r="3" fill="#FFD700" opacity="0.6"/>
-                    <circle cx="540" cy="185" r="3" fill="#FFD700" opacity="0.6"/>
-                    
-                    <!-- Ceiling -->
                     <rect x="420" y="200" width="180" height="8" fill="#FFFFFF" stroke="#999" stroke-width="2"/>
                     <text x="510" y="195" text-anchor="middle" fill="#666" font-size="12">Ceiling Tiles</text>
-                    
-                    <!-- Living room wall interior -->
                     <rect x="420" y="208" width="180" height="140" fill="#F0E68C" stroke="#999" stroke-width="2"/>
                     <text x="510" y="230" text-anchor="middle" fill="#666" font-size="14" font-weight="bold">LIVING ROOM</text>
-                    
-                    <!-- Interior wall texture -->
-                    <line x1="420" y1="250" x2="600" y2="250" stroke="#E6D76C" stroke-width="1" opacity="0.5"/>
-                    <line x1="420" y1="270" x2="600" y2="270" stroke="#E6D76C" stroke-width="1" opacity="0.5"/>
-                    <line x1="420" y1="290" x2="600" y2="290" stroke="#E6D76C" stroke-width="1" opacity="0.5"/>
-                    
-                    <!-- Floor -->
                     <rect x="420" y="348" width="180" height="52" fill="#8B7355" stroke="#654321" stroke-width="2"/>
-                    <!-- Floor tile pattern -->
                     <line x1="460" y1="348" x2="460" y2="400" stroke="#654321" stroke-width="1"/>
                     <line x1="500" y1="348" x2="500" y2="400" stroke="#654321" stroke-width="1"/>
                     <line x1="540" y1="348" x2="540" y2="400" stroke="#654321" stroke-width="1"/>
                     <line x1="580" y1="348" x2="580" y2="400" stroke="#654321" stroke-width="1"/>
                     <text x="510" y="380" text-anchor="middle" fill="#F5DEB3" font-size="12" font-weight="bold">Vinyl Floor Tiles</text>
-                    
-                    <!-- Basement -->
                     <rect x="420" y="400" width="180" height="100" fill="#505050" stroke="#404040" stroke-width="2"/>
                     <text x="510" y="430" text-anchor="middle" fill="#CCC" font-size="14" font-weight="bold">BASEMENT</text>
-                    
-                    <!-- Pipes in basement -->
                     <rect x="450" y="440" width="15" height="50" fill="#95A5A6" stroke="#7F8C8D" stroke-width="2" rx="3"/>
                     <rect x="530" y="440" width="15" height="50" fill="#95A5A6" stroke="#7F8C8D" stroke-width="2" rx="3"/>
                     <text x="510" y="470" text-anchor="middle" fill="#CCC" font-size="11">Pipe Insulation</text>
-                    
-                    <!-- HOTSPOTS -->
-                    <!-- Roof -->
                     <circle cx="125" cy="150" r="20" fill="#E74C3C" stroke="white" stroke-width="3" style="cursor: pointer;" onclick="showAsbestosInfo('roof')"/>
-                    <text x="125" y="157" text-anchor="middle" fill="white" font-size="20" font-weight="bold" style="cursor: pointer; pointer-events: none;">!</text>
-                    
-                    <!-- Siding -->
+                    <text x="125" y="157" text-anchor="middle" fill="white" font-size="20" font-weight="bold" style="pointer-events: none;">!</text>
                     <circle cx="125" cy="300" r="20" fill="#E74C3C" stroke="white" stroke-width="3" style="cursor: pointer;" onclick="showAsbestosInfo('siding')"/>
-                    <text x="125" y="307" text-anchor="middle" fill="white" font-size="20" font-weight="bold" style="cursor: pointer; pointer-events: none;">!</text>
-                    
-                    <!-- Attic Insulation -->
+                    <text x="125" y="307" text-anchor="middle" fill="white" font-size="20" font-weight="bold" style="pointer-events: none;">!</text>
                     <circle cx="510" cy="150" r="20" fill="#E74C3C" stroke="white" stroke-width="3" style="cursor: pointer;" onclick="showAsbestosInfo('attic')"/>
-                    <text x="510" y="157" text-anchor="middle" fill="white" font-size="20" font-weight="bold" style="cursor: pointer; pointer-events: none;">!</text>
-                    
-                    <!-- Ceiling -->
+                    <text x="510" y="157" text-anchor="middle" fill="white" font-size="20" font-weight="bold" style="pointer-events: none;">!</text>
                     <circle cx="510" cy="204" r="20" fill="#E74C3C" stroke="white" stroke-width="3" style="cursor: pointer;" onclick="showAsbestosInfo('ceiling')"/>
-                    <text x="510" y="211" text-anchor="middle" fill="white" font-size="20" font-weight="bold" style="cursor: pointer; pointer-events: none;">!</text>
-                    
-                    <!-- Flooring -->
+                    <text x="510" y="211" text-anchor="middle" fill="white" font-size="20" font-weight="bold" style="pointer-events: none;">!</text>
                     <circle cx="510" cy="374" r="20" fill="#E74C3C" stroke="white" stroke-width="3" style="cursor: pointer;" onclick="showAsbestosInfo('flooring')"/>
-                    <text x="510" y="381" text-anchor="middle" fill="white" font-size="20" font-weight="bold" style="cursor: pointer; pointer-events: none;">!</text>
-                    
-                    <!-- Basement/Pipes -->
+                    <text x="510" y="381" text-anchor="middle" fill="white" font-size="20" font-weight="bold" style="pointer-events: none;">!</text>
                     <circle cx="510" cy="455" r="20" fill="#E74C3C" stroke="white" stroke-width="3" style="cursor: pointer;" onclick="showAsbestosInfo('basement')"/>
-                    <text x="510" y="462" text-anchor="middle" fill="white" font-size="20" font-weight="bold" style="cursor: pointer; pointer-events: none;">!</text>
-                    
-                    <!-- Chimney -->
+                    <text x="510" y="462" text-anchor="middle" fill="white" font-size="20" font-weight="bold" style="pointer-events: none;">!</text>
                     <circle cx="175" cy="110" r="20" fill="#E74C3C" stroke="white" stroke-width="3" style="cursor: pointer;" onclick="showAsbestosInfo('chimney')"/>
-                    <text x="175" y="117" text-anchor="middle" fill="white" font-size="20" font-weight="bold" style="cursor: pointer; pointer-events: none;">!</text>
+                    <text x="175" y="117" text-anchor="middle" fill="white" font-size="20" font-weight="bold" style="pointer-events: none;">!</text>
                 </svg>
                 
                 <div id="asbestos-info" class="info-panel" style="margin-top: 2rem;">
@@ -1170,16 +941,12 @@
             <div style="max-width: 900px; margin: 0 auto; background: #f8f9fa; border-radius: 15px; padding: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                 <iframe 
                     width="100%" 
-                    height="500" 
+                    height="450" 
                     frameborder="0" 
                     style="border:0; border-radius: 10px;" 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d403530.3625!2d-77.63!3d38.81!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b65a3a34b0e2a9%3A0xc7b5d2b9a6f6a5d7!2sHaymarket%2C%20VA!5e0!3m2!1sen!2sus!4v1234567890" 
                     allowfullscreen>
                 </iframe>
-                <p style="text-align: center; margin-top: 1.5rem; color: #666; font-size: 0.95rem;">
-                    <strong>50-Mile Service Radius from Haymarket, VA</strong><br>
-                    Interactive map showing our coverage area
-                </p>
             </div>
 
             <div class="coverage-cities">
@@ -1202,66 +969,69 @@
             </div>
             
             <p style="text-align: center; margin-top: 2rem; color: #666;">
-                Don't see your city listed? We serve the entire 50-mile radius from Haymarket. <strong>Contact us to confirm coverage for your area.</strong>
+                Don't see your city listed? <strong>Contact us to confirm coverage for your area.</strong>
             </p>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 SafeShield Inspections. Licensed and Insured.</p>
-        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Serving Northern Virginia</p>
+        <p>&copy; 2026 SafeShield Inspections LLC. Licensed and Insured.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Serving Northern Virginia | DPOR Licensed</p>
     </footer>
 
     <script>
+        function toggleMobileNav() {
+            var nav = document.getElementById('mobileNav');
+            var btn = document.getElementById('hamburger');
+            nav.classList.toggle('open');
+            btn.classList.toggle('open');
+        }
+
+        function closeMobileNav() {
+            var nav = document.getElementById('mobileNav');
+            var btn = document.getElementById('hamburger');
+            nav.classList.remove('open');
+            btn.classList.remove('open');
+        }
+
         function navigateTo(sectionId) {
             var sections = document.querySelectorAll('.page-section');
             for (var i = 0; i < sections.length; i++) {
                 sections[i].classList.add('hidden');
             }
-            
             if (sectionId === 'home') {
                 document.getElementById('home').classList.remove('hidden');
                 document.getElementById('services').classList.remove('hidden');
             } else {
                 document.getElementById(sectionId).classList.remove('hidden');
             }
-            
             window.scrollTo(0, 0);
         }
 
         function toggleFAQ(element) {
             var answer = element.nextElementSibling;
             var allAnswers = document.querySelectorAll('.faq-answer');
-            
             for (var i = 0; i < allAnswers.length; i++) {
                 if (allAnswers[i] !== answer) {
                     allAnswers[i].classList.remove('active');
                 }
             }
-            
-            if (answer.classList.contains('active')) {
-                answer.classList.remove('active');
-            } else {
-                answer.classList.add('active');
-            }
+            answer.classList.toggle('active');
         }
 
         function submitForm(event) {
             event.preventDefault();
-            
             var name = document.getElementById('name').value;
             var email = document.getElementById('email').value;
             var phone = document.getElementById('phone').value;
             var address = document.getElementById('address').value;
             var message = document.getElementById('message').value;
-            
             var checkboxes = document.querySelectorAll('input[name="areas"]:checked');
             var selectedAreas = [];
             for (var i = 0; i < checkboxes.length; i++) {
                 selectedAreas.push(checkboxes[i].value);
             }
             var areasText = selectedAreas.length > 0 ? selectedAreas.join(', ') : 'Not specified';
-
             var subject = encodeURIComponent('Asbestos Inspection Request from ' + name);
             var body = encodeURIComponent(
                 'Name: ' + name + '\n' +
@@ -1271,9 +1041,7 @@
                 'Areas needing testing: ' + areasText + '\n\n' +
                 'Additional Details:\n' + message
             );
-            
-            window.location.href = 'mailto:youremail@safeshieldinspections.com?subject=' + subject + '&body=' + body;
-            
+            window.location.href = 'mailto:info@safeshieldinspections.com?subject=' + subject + '&body=' + body;
             alert('Thank you! Your email client will open to send your request.');
         }
 
@@ -1281,7 +1049,7 @@
             var info = {
                 attic: {
                     title: "Attic Insulation",
-                    content: "Vermiculite insulation in attics, particularly Zonolite brand from Libby, Montana, often contains asbestos. It appears as small, lightweight, pebble-like pieces. Never disturb this insulation yourself - it requires professional removal."
+                    content: "Vermiculite insulation in attics, particularly Zonolite brand from Libby, Montana, often contains asbestos. It appears as small, lightweight, pebble-like pieces. Never disturb this insulation yourself - it requires professional testing and potentially licensed removal."
                 },
                 roof: {
                     title: "Roof Shingles & Felt",
@@ -1308,7 +1076,6 @@
                     content: "Basements often contain multiple asbestos hazards: furnace insulation, boiler wrapping, pipe insulation, old floor tiles, and ceiling tiles. White or gray pipe wrapping commonly contained asbestos. Always test before disturbing any materials in these areas."
                 }
             };
-
             var panel = document.getElementById('asbestos-info');
             var data = info[location];
             panel.innerHTML = '<h3>' + data.title + '</h3><p>' + data.content + '</p>';
